@@ -11,10 +11,12 @@ class Table(Turtle):
         super().__init__(shape='square')
         self.color(COLOR)
         self.penup()
-        self.goto(0,300)
+        self.goto(0, 300)
         self.pendown()
         self.setheading(270)
         self.pen(pensize=WIDTH)
+
+        #Este bloque sirve para hacer las franjas que dividen la cancha
         while self.ycor() > -280:
             self.forward(STEPS)
             self.penup()

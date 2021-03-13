@@ -21,7 +21,7 @@ class Ball(Turtle):
         self.speed_ball = INITIAL_SPEED
 
     def move_ball(self, pad1, pad2, score: Scoreboard):
-
+        '''Controlará todas las posibles respuestas de la pelota'''
         #Detectando si salio de los limites
         if self.xcor() < -360 or self.xcor() > 360:
             self.goto(0, 0)
@@ -63,18 +63,21 @@ class Ball(Turtle):
         else:
             self.setheading(126) #180°-54°
 
-    def collision_paddle_user1(self,pad1):
+    #Colision con el paddle del usuario 1
+    def collision_paddle_user1(self, pad1):
         posibility = randint(0, 1)
         if posibility == 0:
             self.setheading(randint(0, 54))
         else:
             self.setheading(randint(306, 360))
 
-    def collision_paddle_user2(self,pad2):
+    def collision_paddle_user2(self, pad2):
         self.setheading(randint(126, 234))
 
     def initial_push(self):
+        '''Empieza el moviento de la pelota'''
         self.speed_ball = INITIAL_SPEED
+        #Obtiene un angulo hacía donde saldrá la pelota
         twist = randint(0, 360)
         self.setheading(twist)
         # Este bloque sirve para controlar si la pelota le dio para el campo de cierto jugador
